@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 驱动名称 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 数据库地址 -->
+		<property name="connection.url">jdbc:mysql://121.40.161.96:3306/test</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">284856820</property>
+		<!-- 通过hbm2ddl工具从映射文件转换成数据库 Schema(模型) （1）create-drop hebarinate初始化时创建表格,程序运行结束的时候会删除相应的表格，在实际项目中不用 
+			（2）create hibernate初始化时会创建表格，在运行结束之后不删除表格，而是在下一次运行的时候如果有旧的删掉，没有旧的，重新建表格 （3）update 
+			只是根据映射文件去和数据库中的表对应起来，如果不一致，就更新表的结构 （4）validate 校验映射文件和数据库中的表是不是能对应起来，不能对应报错，实际中常用 -->
+		<property name="hbm2ddl.auto">validate</property>
+		<!-- 显示SQL语句 -->
+		<property name="show_sql">true</property>
+		<!-- 数据库方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 需要持久化的类 -->
+		<mapping class="org.bond.entity.UserEntity" />
+		<mapping class="org.bond.entity.AlbumEntity" />
+
+	</session-factory>
+</hibernate-configuration>
